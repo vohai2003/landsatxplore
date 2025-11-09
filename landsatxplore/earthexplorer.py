@@ -42,11 +42,11 @@ def _get_token(body):
 class EarthExplorer(object):
     """Access Earth Explorer portal."""
 
-    def __init__(self, username, password):
+    def __init__(self, username, password, token): # Require all 3
         """Access Earth Explorer portal."""
         self.session = requests.Session()
         self.login(username, password)
-        self.api = API(username, password)
+        self.api = API(username, token=token)
 
     def logged_in(self):
         """Check if the log-in has been successfull based on session cookies."""
